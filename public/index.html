@@ -40,5 +40,25 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDGdCdN2ko1mrdmU9X-pEgm5Zx9mJ41UB8",
+        authDomain: "pern-todo-front.firebaseapp.com",
+        projectId: "pern-todo-front",
+        storageBucket: "pern-todo-front.appspot.com",
+        messagingSenderId: "55163526106",
+        appId: "1:55163526106:web:6e38ddc072de0a56b6fee3"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>
