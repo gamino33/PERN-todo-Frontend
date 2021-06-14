@@ -1,8 +1,12 @@
 import './App.css';
+import InputTodo from './components/InputTodo';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <h1>Hello world</h1>
+    <Layout>
+        <InputTodo />
+    </Layout>
   );
 }
 
