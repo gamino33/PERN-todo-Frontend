@@ -15,7 +15,7 @@ const InputTodo = () => {
                 body: JSON.stringify(body)
             });
             setDescription("");
-            window.locarion = "/";
+            window.location = "/";
         }
     };
 
@@ -25,7 +25,7 @@ const InputTodo = () => {
             <h1>PERN TodoList</h1>
             <TextField
                 id="outlined-basic"
-                label="Outlined"
+                label="Enter the task..."
                 variant="outlined"
                 fullWidth={true}
                 multiline={false}

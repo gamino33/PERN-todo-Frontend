@@ -12,7 +12,7 @@ import {makeStyles} from "@material-ui/styles"
 const useStyles = makeStyles({
     iconCell: {
         padding: 0,
-        height: 48,
+        height: 28,
         width: 48
     }
 })
@@ -24,7 +24,7 @@ const ListTodos = () => {
 
     const deleteTodo = async(id) => {
         try {
-            const deleteTodo = await fetch(`https://pern-todo33.herokuapp.com/todos/${id}`, {
+            await fetch(`https://pern-todo33.herokuapp.com/todos/${id}`, {
                 method: "DELETE"
             });
             setTodos(todos.filter(todo => todo.todo_id !== id));
@@ -48,8 +48,9 @@ const ListTodos = () => {
     }, []);
 
     return (
-        <TableContainer>
-            <h2>TODO LIST</h2>
+        <>
+        <TableContainer style={{ marginTop: "85px"}}>
+            <h1>TODO LIST</h1>
             <Table>
                 <TableBody>
                     {todos.length > 0 && (
@@ -74,6 +75,7 @@ const ListTodos = () => {
                 </TableBody>
             </Table>
         </TableContainer>
+        </>
     )
 
 
