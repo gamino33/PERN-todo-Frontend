@@ -44,11 +44,16 @@ const EditTodo = ({todo}) => {
     const updateDescription = async() => {
         const id = todo.todo_id;
         const body = {description};
-        await fetch(`https://pern-todo33.herokuapp.com/todos/${id}`, {
+        try {
+            await fetch(`https://pern-todo33.herokuapp.com/todos/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(body)
-        });
+            });
+        } catch (err) {
+            console.error(err.message);
+        }
+
         setOpen(false);
     };
 

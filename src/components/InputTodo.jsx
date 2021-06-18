@@ -1,13 +1,12 @@
 import React,{useState} from "react";
 import TextField from "@material-ui/core/TextField";
-
+import Button from "@material-ui/core/Button";
 
 const InputTodo = () => {
-
     const [description, setDescription] = useState("");
 
-    const handleKeyDown = async(e) => {
-        if (e.key === 'Enter' && description !== "") {
+    const addTodo = async(e) => {
+        if (description !== "") {
             const body = {description};
             await fetch("https://pern-todo33.herokuapp.com/todos", {
                 method: "POST",
@@ -16,6 +15,7 @@ const InputTodo = () => {
             });
             setDescription("");
             window.location = "/";
+
         }
     };
 
@@ -31,10 +31,15 @@ const InputTodo = () => {
                 multiline={false}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                onKeyDown={handleKeyDown}
                 rows={1}
             />
-
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={addTodo}
+                fullWidth="true"
+                style={{marginTop: "10px"}}
+            >ADD</Button>
         </>
     );
 };
