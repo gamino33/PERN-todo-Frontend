@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from "react"
-import TableContainer from "@material-ui/core/TableContainer"
-import Table from "@material-ui/core/Table"
-import TableBody from "@material-ui/core/TableBody"
-import TableCell from "@material-ui/core/TableCell"
-import TableRow from "@material-ui/core/TableRow"
-import EditIcon from '@material-ui/icons/Edit';
+import React, {useState, useEffect} from "react";
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
 import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from "@material-ui/core/IconButton"
-import {makeStyles} from "@material-ui/styles"
+import IconButton from "@material-ui/core/IconButton";
+import {makeStyles} from "@material-ui/styles";
+import EditTodo from "./EditTodo";
 
 const useStyles = makeStyles({
     iconCell: {
@@ -60,9 +60,7 @@ const ListTodos = () => {
                                     <h2>{todo.description}</h2>
                                 </TableCell>
                                 <TableCell className={classes.iconCell}>
-                                    <IconButton >
-                                        <EditIcon />
-                                    </IconButton>
+                                    <EditTodo todo={todo}/>
                                 </TableCell>
                                 <TableCell className={classes.iconCell}>
                                     <IconButton  onClick={() => deleteTodo(todo.todo_id)}>
