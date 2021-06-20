@@ -1,3 +1,4 @@
+import InputTodo from "./InputTodo";
 import React, {useState, useEffect} from "react";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
@@ -17,8 +18,7 @@ const useStyles = makeStyles({
     }
 })
 
-const ListTodos = () => {
-
+const TodoApp = () => {
     const [todos, setTodos] = useState([]);
     const classes = useStyles();
 
@@ -47,9 +47,16 @@ const ListTodos = () => {
         getTodos();
     }, []);
 
+    const setTodo = (newTodoData) => {
+        const newTodoList = [...todos, newTodoData];
+        setTodos(newTodoList);
+    }
+
+
     return (
         <>
-        <TableContainer style={{ marginTop: "85px"}}>
+            <InputTodo setTodo={setTodo} />
+            <TableContainer style={{ marginTop: "85px"}}>
             <h1>TODO LIST</h1>
             <Table>
                 <TableBody>
@@ -74,10 +81,8 @@ const ListTodos = () => {
             </Table>
         </TableContainer>
         </>
-    )
 
+    );
+};
 
-
-}
-
-export default ListTodos;
+export default TodoApp;

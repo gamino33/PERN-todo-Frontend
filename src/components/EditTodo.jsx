@@ -41,8 +41,7 @@ const EditTodo = ({todo}) => {
         setDescription(todo.description);
     };
 
-    const updateDescription = async() => {
-        const id = todo.todo_id;
+    const updateDescription = async(id) => {
         const body = {description};
         try {
             await fetch(`https://pern-todo33.herokuapp.com/todos/${id}`, {
@@ -92,7 +91,7 @@ const EditTodo = ({todo}) => {
                         color="primary"
                         fullWidth="true"
                         style={{marginTop:"20px"}}
-                        onClick={updateDescription}
+                        onClick={updateDescription(todo.todo_id)}
                     >Edit</Button>
                     <Button
                         variant="contained"

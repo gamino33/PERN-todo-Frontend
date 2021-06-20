@@ -2,20 +2,21 @@ import React,{useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-const InputTodo = () => {
+const InputTodo = (props) => {
     const [description, setDescription] = useState("");
 
     const addTodo = async(e) => {
         if (description !== "") {
             const body = {description};
-            await fetch("https://pern-todo33.herokuapp.com/todos", {
+            const newTodo = await fetch("https://pern-todo33.herokuapp.com/todos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify(body)
             });
+            const newTodoData = await newTodo.json();
             setDescription("");
-            window.location = "/";
-
+            props.setTodo(newTodoData);
+            //window.location = "/";
         }
     };
 
@@ -32,6 +33,7 @@ const InputTodo = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={1}
+                autoComplete="off"
             />
             <Button
                 variant="contained"
